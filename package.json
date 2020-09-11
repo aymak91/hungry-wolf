@@ -1,0 +1,26 @@
+{
+    "name": "hungry-wolf",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "webpack --watch --mode=development"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/aymak91/hungry-wolf"
+    },
+    "author": "Alexander Mak",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/aymak91/hungry-wolf/issues"
+    },
+    "homepage": "https://github.com/aymak91/hungry-wolf/blob/master/README.md",
+    "dependencies": {
+        "file-loader": "^6.1.0",
+        "url-loader": "^4.1.0",
+        "webpack": "^4.44.1",
+        "webpack-cli": "^3.3.12"
+    }
+}

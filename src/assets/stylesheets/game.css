@@ -1,0 +1,22 @@
+/* .game-container {
+    margin: 0 auto;
+    position: relative;
+    width: 704px;
+} */
+
+#board-canvas {
+    border: 1px solid black;
+    /* background: forestgreen; */
+    /* display: flex; */
+    position: absolute; left: 100px; top: 100px; z-index: 0;
+}
+
+.tile-canvas-0 {
+    border: 1px solid black;
+    position: absolute; left: 100px; top: 100px; z-index: 1;
+}
+
+.tile-canvas-1 {
+    border: 1px solid black;
+    position: absolute; left: 200px; top: 100px; z-index: 1;
+}

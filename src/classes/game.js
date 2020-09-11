@@ -29,7 +29,7 @@ class Game {
 
 
         let img = new Image();
-        img.src = './images/spritesheet.png';
+        img.src = './dist/images/spritesheet.png';
 
 
         const board = [

@@ -86,6 +86,28 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/assets/images/spritesheet.png":
+/*!*******************************************!*\
+  !*** ./src/assets/images/spritesheet.png ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"157c883f385d1ea3838e5d880b47581c.png\";\n\n//# sourceURL=webpack:///./src/assets/images/spritesheet.png?");
+
+/***/ }),
+
+/***/ "./src/classes/entity.js":
+/*!*******************************!*\
+  !*** ./src/classes/entity.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const spriteSheet = __webpack_require__(/*! ../assets/images/spritesheet.png */ \"./src/assets/images/spritesheet.png\");\r\n\r\nclass Entity {\r\n    constructor(pos, currentLevel, canvas) {\r\n        this.pos = pos;\r\n        this.canvas = canvas\r\n        this.board = currentLevel;\r\n        this.destination = null;\r\n        this.oldPos = null;\r\n        this.img = new Image();\r\n        this.img.src = spriteSheet;\r\n    }\r\n\r\n    validMove(destination) {\r\n        return this.currentLevel.board[destination.row][destination.col] < 1;\r\n    }\r\n}\r\n\r\nmodule.exports = Entity;\n\n//# sourceURL=webpack:///./src/classes/entity.js?");
+
+/***/ }),
+
 /***/ "./src/classes/game.js":
 /*!*****************************!*\
   !*** ./src/classes/game.js ***!
@@ -93,7 +115,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("// const spriteSheet = require('../assets/images/spritesheet.png');\r\n\r\nclass Game {\r\n    constructor(boardCanvas) {\r\n        this.boardCanvas = boardCanvas;\r\n\r\n\r\n\r\n      \r\n        \r\n        // this.img = new Image();\r\n        // this.img.src = './images/spritesheet.png';\r\n\r\n        this.drawBoard = this.drawBoard.bind(this);\r\n    }\r\n\r\n    drawBoard() {\r\n        const rows = 9;\r\n        const cols = 9;\r\n        const tileSize = 64;\r\n\r\n        let ctx = this.boardCanvas.getContext('2d');\r\n        this.boardCanvas.width = tileSize * cols;\r\n        this.boardCanvas.height = tileSize * rows;\r\n        ctx.mozImageSmoothingEnabled = false;\r\n        ctx.webkitImageSmoothingEnabled = false;\r\n        ctx.msImageSmoothingEnabled = false;\r\n        ctx.imageSmoothingEnabled = false;\r\n\r\n\r\n        let img = new Image();\r\n        img.src = './dist/images/spritesheet.png';\r\n\r\n\r\n        const board = [\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0]\r\n        ];  \r\n\r\n        img.onload = function () {\r\n            for (let i = 0; i < rows; i++) {\r\n                for (let j = 0; j < cols; j++) {\r\n                    switch (board[i][j]) {\r\n                        case 0:\r\n                            ctx.drawImage(\r\n                                img, 0, 0, 16, 16,\r\n                                j * tileSize, i * tileSize, tileSize, tileSize\r\n                            );\r\n                            break;\r\n                        default:\r\n                            break;\r\n                    }\r\n                }\r\n            }\r\n        }\r\n\r\n        // let j = 0;\r\n        // let i = 0;\r\n\r\n        // debugger\r\n        \r\n        // img.onload = function () {\r\n        //     ctx.drawImage(\r\n        //         img, 0, 0, 16, 16,\r\n        //         0 * tileSize, 0 * tileSize, tileSize, tileSize\r\n        //     );\r\n        //     ctx.drawImage(\r\n        //         img, 0, 0, 16, 16,\r\n        //         1 * tileSize, 0 * tileSize, tileSize, tileSize\r\n        //     );\r\n        // }\r\n\r\n        // ctx.beginPath();\r\n        // ctx.fillStyle = 'red';\r\n        // ctx.fillRect(0,0,100,100)\r\n\r\n\r\n    }\r\n\r\n}\r\n\r\nmodule.exports = Game;\n\n//# sourceURL=webpack:///./src/classes/game.js?");
+eval("// const spriteSheet = require('../assets/images/spritesheet.png');\r\n\r\nclass Game {\r\n    constructor(boardCanvas, entityCanvas, boardState) {\r\n        this.boardCanvas = boardCanvas;\r\n        this.entityCanvas = entityCanvas;\r\n        this.boardState = boardState;\r\n        \r\n        // this.img = new Image();\r\n        // this.img.src = './images/spritesheet.png';\r\n        this.pos = [1,1];\r\n\r\n        this.drawBoard = this.drawBoard.bind(this);\r\n    }\r\n\r\n    drawBoard() {\r\n        const rows = 9;\r\n        const cols = 9;\r\n        const tileSize = 64;\r\n\r\n        let ctx = this.boardCanvas.getContext('2d');\r\n        this.boardCanvas.width = tileSize * cols;\r\n        this.boardCanvas.height = tileSize * rows;\r\n        ctx.mozImageSmoothingEnabled = false;\r\n        ctx.webkitImageSmoothingEnabled = false;\r\n        ctx.msImageSmoothingEnabled = false;\r\n        ctx.imageSmoothingEnabled = false;\r\n\r\n\r\n        let img = new Image();\r\n        img.src = './dist/images/spritesheet.png';\r\n\r\n\r\n        const board = [\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0]\r\n        ];  \r\n\r\n        img.onload = function () {\r\n            for (let i = 0; i < rows; i++) {\r\n                for (let j = 0; j < cols; j++) {\r\n                    switch (board[i][j]) {\r\n                        case 0:\r\n                            ctx.drawImage(\r\n                                img, 0, 0, 64, 64,\r\n                                j * tileSize, i * tileSize, tileSize, tileSize\r\n                            );\r\n                            break;\r\n                        default:\r\n                            break;\r\n                    }\r\n                }\r\n            }\r\n        }\r\n\r\n    }\r\n\r\n    drawWolf(board) {\r\n        const rows = 9;\r\n        const cols = 9;\r\n        const tileSize = 64;\r\n\r\n        let ctx = this.entityCanvas.getContext('2d');\r\n        this.entityCanvas.width = tileSize * cols;\r\n        this.entityCanvas.height = tileSize * rows;\r\n        ctx.mozImageSmoothingEnabled = false;\r\n        ctx.webkitImageSmoothingEnabled = false;\r\n        ctx.msImageSmoothingEnabled = false;\r\n        ctx.imageSmoothingEnabled = false;\r\n\r\n\r\n        let img = new Image();\r\n        img.src = './dist/images/spritesheet.png';\r\n\r\n        img.onload = function () {\r\n            for (let i = 0; i < rows; i++) {\r\n                for (let j = 0; j < cols; j++) {\r\n                    switch (board[i][j]) {\r\n                        case 1:\r\n                            ctx.drawImage(\r\n                                img, 65, 0, 64, 64,\r\n                                j * tileSize, i * tileSize, tileSize, tileSize\r\n                            );\r\n                            break;\r\n                        default:\r\n                            break;\r\n                    }\r\n                }\r\n            }\r\n        }\r\n\r\n    }\r\n\r\n    keyBinds(e) {\r\n        switch (e.keyCode) {\r\n            case 87: // W\r\n                if (this.wolf.state === 'IDLE') {\r\n                    this.wolf.state = 'MOVING_UP';\r\n                }\r\n            case 65: // A\r\n                if (this.wolf.state === 'IDLE') {\r\n                    this.wolf.state = 'MOVING_LEFT';\r\n                }\r\n            case 83: // S\r\n                if (this.wolf.state === 'IDLE') {\r\n                    this.wolf.state = 'MOVING_LEFT';\r\n                }\r\n            case 68: // D\r\n                if (this.wolf.state === 'IDLE') {\r\n                    this.wolf.state = 'MOVING_LEFT';\r\n                }\r\n        }\r\n    }\r\n\r\n}\r\n\r\nmodule.exports = Game;\n\n//# sourceURL=webpack:///./src/classes/game.js?");
 
 /***/ }),
 
@@ -104,7 +126,18 @@ eval("// const spriteSheet = require('../assets/images/spritesheet.png');\r\n\r\
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const Game = __webpack_require__(/*! ./game */ \"./src/classes/game.js\")\r\n\r\nclass GameView {\r\n    constructor(game) {\r\n        this.game = game;\r\n    }\r\n\r\n    start() {\r\n        this.game.drawBoard();\r\n    }\r\n\r\n}\r\n\r\nmodule.exports = GameView;\n\n//# sourceURL=webpack:///./src/classes/game_view.js?");
+eval("const Game = __webpack_require__(/*! ./game */ \"./src/classes/game.js\")\r\n\r\nclass GameView {\r\n    constructor(game, wolfState) {\r\n        this.game = game;\r\n        this.wolfState = wolfState;\r\n    }\r\n\r\n    start(wolfState) {\r\n        this.game.drawBoard();\r\n        this.game.drawWolf(wolfState);\r\n    }\r\n\r\n}\r\n\r\nmodule.exports = GameView;\n\n//# sourceURL=webpack:///./src/classes/game_view.js?");
+
+/***/ }),
+
+/***/ "./src/classes/wolf.js":
+/*!*****************************!*\
+  !*** ./src/classes/wolf.js ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const Entity = __webpack_require__(/*! ./entity */ \"./src/classes/entity.js\");\r\n\r\nclass Wolf {\r\n    constructor(wolfPos) {\r\n        this.wolfPos = wolfPos;\r\n        this.state = 'IDLE';\r\n        \r\n        this.board = [\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\r\n            [0, 0, 0, 0, 0, 0, 0, 0, 0]\r\n        ];\r\n\r\n        const rows = 9;\r\n        const cols = 9;\r\n\r\n        for (let i = 0; i < rows; i++) {\r\n            for (let j = 0; j < cols; j++) {\r\n                if (wolfPos[0] === i && wolfPos[1] === j) {\r\n                    this.board[i][j] = 1;\r\n                }\r\n            }\r\n        }\r\n\r\n    }\r\n}\r\n\r\nmodule.exports = Wolf;\n\n//# sourceURL=webpack:///./src/classes/wolf.js?");
 
 /***/ }),
 
@@ -115,7 +148,7 @@ eval("const Game = __webpack_require__(/*! ./game */ \"./src/classes/game.js\")\
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const Game = __webpack_require__(/*! ./classes/game */ \"./src/classes/game.js\");\r\nconst GameView = __webpack_require__(/*! ./classes/game_view */ \"./src/classes/game_view.js\");\r\n\r\ndocument.addEventListener(\"DOMContentLoaded\", () => {\r\n    const boardCanvas = document.getElementById('board-canvas');\r\n    const entityCanvas = document.getElementById('entity-canvas');\r\n    const attackCanvas = document.getElementById('attack-canvas');\r\n    const game = new Game(boardCanvas);\r\n    const gameView = new GameView(game);\r\n\r\n\r\n    gameView.start();\r\n\r\n    \r\n    // boardCanvas.width = 512;\r\n    // boardCanvas.height = 512;\r\n    \r\n    \r\n    // TESTING //\r\n    console.log(\"Webpack is working!\");\r\n    \r\n    // TESTING //\r\n\r\n\r\n});\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const Game = __webpack_require__(/*! ./classes/game */ \"./src/classes/game.js\");\r\nconst GameView = __webpack_require__(/*! ./classes/game_view */ \"./src/classes/game_view.js\");\r\nconst Wolf = __webpack_require__(/*! ./classes/wolf */ \"./src/classes/wolf.js\")\r\n\r\ndocument.addEventListener(\"DOMContentLoaded\", () => {\r\n    const boardCanvas = document.getElementById('board-canvas');\r\n    const entityCanvas = document.getElementById('entity-canvas');\r\n    const attackCanvas = document.getElementById('attack-canvas');\r\n    \r\n    \r\n    const game = new Game(boardCanvas, entityCanvas);\r\n    let wolf = new Wolf([1,3]);\r\n    let wolfState = wolf.board;\r\n    const gameView = new GameView(game, wolfState);\r\n\r\n\r\n    gameView.start(wolfState);\r\n\r\n    \r\n    // boardCanvas.width = 512;\r\n    // boardCanvas.height = 512;\r\n    \r\n    \r\n    // TESTING //\r\n    console.log(\"Webpack is working!\");\r\n    window.pos = game.pos;\r\n    window.wolfState = wolf;\r\n    // TESTING //\r\n\r\n\r\n});\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 

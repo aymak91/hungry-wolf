@@ -1,12 +1,14 @@
 const Game = require('./game')
 
 class GameView {
-    constructor(game) {
+    constructor(game, wolfState) {
         this.game = game;
+        this.wolfState = wolfState;
     }
 
-    start() {
+    start(wolfState) {
         this.game.drawBoard();
+        this.game.drawWolf(wolfState);
     }
 
 }

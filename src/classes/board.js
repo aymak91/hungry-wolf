@@ -1,11 +1,7 @@
-const Entity = require('./entity');
+class Board {
+    boardState(wolfPos) {
 
-class Wolf {
-    constructor(wolfPos) {
-        this.wolfPos = wolfPos;
-        this.state = 'IDLE';
-        
-        this.board = [
+        let board = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -17,18 +13,14 @@ class Wolf {
             [0, 0, 0, 0, 0, 0, 0, 0, 0]
         ];
 
-        const rows = 9;
-        const cols = 9;
-
         for (let i = 0; i < rows; i++) {
             for (let j = 0; j < cols; j++) {
                 if (wolfPos[0] === i && wolfPos[1] === j) {
-                    this.board[i][j] = 1;
+                    board[i][j] = 1;
                 }
             }
         }
 
+        return board;
     }
 }
-
-module.exports = Wolf;

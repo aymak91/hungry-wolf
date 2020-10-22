@@ -11,6 +11,8 @@ class Game {
         this.pos = [1,1];
 
         this.drawBoard = this.drawBoard.bind(this);
+        this.keyBinds = this.keyBinds.bind(this);
+
     }
 
     drawBoard() {
@@ -99,6 +101,7 @@ class Game {
     }
 
     keyBinds(e) {
+        // console.log('pressed');
         switch (e.keyCode) {
             case 87: // W
                 if (this.wolf.state === 'IDLE') {
@@ -110,11 +113,11 @@ class Game {
                 }
             case 83: // S
                 if (this.wolf.state === 'IDLE') {
-                    this.wolf.state = 'MOVING_LEFT';
+                    this.wolf.state = 'MOVING_DOWN';
                 }
             case 68: // D
                 if (this.wolf.state === 'IDLE') {
-                    this.wolf.state = 'MOVING_LEFT';
+                    this.wolf.state = 'MOVING_RIGHT';
                 }
         }
     }

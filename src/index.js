@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // create tool tip element
     const toolTip = document.createElement('div');
-    toolTip.innerHTML = "Music will play when you click this";
+    toolTip.innerHTML = "Music will play when game starts";
     toolTip.classList.add('tool-tip');
 
     playBtn.addEventListener('click', () => {

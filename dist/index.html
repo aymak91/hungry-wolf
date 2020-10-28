@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hungry Wolf</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="../src/assets/stylesheets/reset.css" />
+        <link rel="stylesheet" type="text/css" href="../src/assets/stylesheets/game.css" />
+        <script type="application/javascript" src="./main.js"></script>
+    </head>
+
+    <body class='stop-scrolling'>
+        <header>Hungry Wolf</header>
+        <div class='music-controls hidden'>
+            <span>Music</span>
+            <i id='music-play' class="hidden fa fa-play"></i>
+            <i id='music-pause' class="fa fa-pause"></i>
+        </div> 
+
+        <audio 
+            loop 
+            id='music' 
+            src='../src/assets/sounds/battle-frontier-8b.mp3' 
+        ></audio>
+
+        <ul class='menu not-game'>
+            <li id='start-btn'>Play</li><br>
+            <li id='instructions-btn'>Instructions</li>
+        </ul>
+
+        <article class='instructions animate-expand not-game'>
+            <p>W (up) | A (left) | S (down) | D (right) - Move Wolfey!</p>
+            <p>Arrow Keys - Attack!</p>
+            <p>Farmers will move for each action you take. Don't get caught!</p>
+        </article>
+
+        <button class='go-back animate-expand not-game'>Go back</button>
+
+        <article class='game-story animate-expand not-game'>
+            <p>Wolfey has stumbled upon a juicy piece of meet left outside.</p>
+            <p>The local farmers don't seem too happy about that though.</p>
+            <p>Help Wolfey scare away as many farmers as possible to protect the meet without getting caught!</p>
+        </article>
+
+        <button class='play-btn animate-expand not-game'>Start</button>
+
+        <div class='game-over animate-fade hidden'>
+            <span>YOU WERE CAUGHT!!</span>
+            <span id='kills'></span>
+        </div>
+
+        <span class='cont animate-fade'>Press [ any ] key to retry</span>
+
+        <div class="game-container">
+            <canvas id="board-canvas"></canvas>
+            <canvas id="animate-canvas"></canvas>
+            <canvas id="attack-canvas"></canvas>
+            <audio id='sword-slash' src='../src/assets/sounds/pkmn-attack.mp3' autoplay='false'></audio>
+        </div>
+
+    </body>
+
+</html>

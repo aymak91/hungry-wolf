@@ -100,11 +100,11 @@ class Game {
 
     increaseDifficulty() {
         if (this.kills > 0) {
-            if (this.kills % 6 === 0) {
+            if (this.kills % 2 === 0) {
                 this.limit += 1;
                 this.increase = false;
             }
-            if (this.kills % 12 === 0) {
+            if (this.kills % 3 === 0) {
                 this.spawnAmount += 1;
             }
         }

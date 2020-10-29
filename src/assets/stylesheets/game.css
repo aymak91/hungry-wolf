@@ -5,11 +5,16 @@
 
 body {
     background: rgb(15, 90, 15);
+    background-image: url("../images/background.gif");
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: Poland;
     color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    z-index: -1;
 }
 
 .stop-scrolling {
@@ -38,14 +43,17 @@ canvas {
 
 #board-canvas {
     z-index: 4;
+    border: 5px solid  goldenrod;
 }
 
 #animate-canvas {
     z-index: 5;
+    border: 5px solid  goldenrod;
 }
 
 #attack-canvas {
     z-index: 6;
+    border: 5px solid  goldenrod;
 }
 
 header {
@@ -115,6 +123,7 @@ li:hover::after {
     position: relative;
     transform: scaleX(1);
     transition: transform 250ms ease-in-out;
+    background-color: goldenrod;
 }
 
 .instructions p {
@@ -128,6 +137,7 @@ li:hover::after {
 
 .game-story {
     border: 1px solid white;
+    background-color: goldenrod;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
@@ -254,6 +264,7 @@ button:hover::after {
     border-width: 1px 1px 1px 0;
     padding: 5px 10px;
     transition: opacity 1000ms ease-in-out;
+    background-color: goldenrod;
 }
 
 .tool-tip::before {
@@ -268,6 +279,8 @@ button:hover::after {
     left: -21px;
     transform: rotate(45deg);
     transition: opacity 1000ms ease-in-out;
+    background-color: goldenrod;
+    z-index: -1;
 }
 
 .hidden {
@@ -277,4 +290,31 @@ button:hover::after {
 .hidden::before {
     display: none;
 }
-            
+
+.about-me {
+    /* position: fixed; */
+    /* right: 10%; */
+    /* bottom: 1px; */
+    display: flex;
+    flex-direction: row;
+    color: cornsilk;
+}
+
+.about-me > * {
+    padding: 5px;
+    font-size: 35px;
+    margin: 5px;
+    transition: all .2s ease-in-out;
+    color: whitesmoke;
+    animation: 3s ease 0s normal forwards 1 fadein;
+    -webkit-animation: 3s ease 0s normal forwards 1 fadein;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+.about-me > *:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    animation: colorchange 1s ease-in-out infinite alternate;
+    -webkit-animation: colorchange 1s ease-in-out infinite alternate;
+}
